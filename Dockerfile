@@ -7,5 +7,5 @@ RUN pip install --no-cache-dir -r /tmp/requirements.txt
 
 COPY ./src /src
 
-EXPOSE 8080
+EXPOSE 5000
 CMD python3 src/app.py
