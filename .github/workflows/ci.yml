@@ -37,7 +37,7 @@ jobs:
       - name: Modify values.yaml
         shell: bash
         run: |
-          echo ${{needs.ci.outputs.commit_id}} > helm-charts/python-app/values.yaml
+          echo ${{needs.ci.outputs.commit_id}}
           pip install yq
           yq -i '.image.tag = strenv(COMMIT_SHA)' helm-charts/python-app/values.yaml
 
