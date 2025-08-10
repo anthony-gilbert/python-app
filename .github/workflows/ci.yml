@@ -1,4 +1,4 @@
-name: ci
+name: cicd
 
 on:
   push:
@@ -9,8 +9,8 @@ on:
 
 
 jobs:
-  docker:
-    runs-on: self-hosted
+  ci:
+    runs-on: ubuntu-latest
     steps:
       - name: Set short git commit SHA
         shell: bash
@@ -28,3 +28,16 @@ jobs:
         with:
           push: true
           tags: anthonygilbertt/python-app:${{env.COMMIT_SHA}}
+  cd:
+    runs-on: self-hosted
+    needs: ci
+    steps:
+      - name: ArgoCD sync
+        shell: bash
+        run: |
+          argocd login argo-argocd-server.argocd --insecure --username admin --password ${{ secrets.ARGOCD_PASSWORD }}
+          argocd app sync python-app
+          echo "ArgoCD login completed successfully."
+        # env:
+        #   ARGOCD_SERVER: ${{ secrets.ARGOCD_SERVER }}
+        #   ARGOCD_TOKEN: ${{ secrets.ARGOCD_TOKEN }}
