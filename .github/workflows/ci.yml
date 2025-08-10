@@ -13,9 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set short git commit SHA
-        id: vars
+        shell: bash
         run: |
-          github_sha_short="${github_sha_hash:0:7}"
+          echo "COMMIT_SHA=$(GITHUB_SHA::6)" >> $GITHUB_ENV
       -
         name: Login to Docker Hub
         uses: docker/login-action@v3
@@ -27,4 +27,4 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: anthonygilbertt/python-app:${github_sha_short}
+          tags: anthonygilbertt/python-app:${{env.COMMIT_SHA}}
