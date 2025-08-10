@@ -39,7 +39,7 @@ jobs:
         run: |
           echo ${{needs.ci.outputs.commit_id}}
           pip install yq
-          yq -i '.image.tag = strenv(COMMIT_SHA)' helm-charts/python-app/values.yaml
+          yq -Yi '.image.tag = "${{needs.ci.outputs.commit_id}}"' helm-charts/python-app/values.yaml
 
       - name: Install ArgoCD CLI
         shell: bash
