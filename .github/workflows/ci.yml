@@ -28,10 +28,19 @@ jobs:
         with:
           push: true
           tags: anthonygilbertt/python-app:${{env.COMMIT_SHA}}
+    outputs:
+      commit_id: ${{env.COMMIT_SHA}}
   cd:
     runs-on: self-hosted
     needs: ci
     steps:
+      - name: Modify values.yaml
+        shell: bash
+        run: |
+          echo ${{needs.ci.outputs.commit_id}} > helm-charts/python-app/values.yaml
+          pip install yq
+          yq -i '.image.tag = strenv(COMMIT_SHA)' helm-charts/python-app/values.yaml
+
       - name: Install ArgoCD CLI
         shell: bash
         run: |
