@@ -20,7 +20,7 @@ def details():
         'hostname': socket.gethostname(),
         'mesage': 'Hello, World!',
         'deployed_by': 'Anthony Gilbert',
-        'deployed_on': 'minikube',
+        'deployed_on': 'minikube'
     })
 
 @app.route('/app/v1/health')
