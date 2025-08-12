@@ -10,4 +10,4 @@ plugins:
 
 nav:
   - Overview:
-      - Getting started: index.md
+      - Getting started: 'docs/index.md'
