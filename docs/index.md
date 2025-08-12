@@ -3,20 +3,20 @@
 
 A lightweight Python application built to demonstrate core features, including setup, execution, and configuration.
 
-## 📦 Features
+##  Features
 
 - Modular Python code structure
 - Configurable via environment variables
 - Easy to run locally or in containers
 - Simple logging for debugging
 
-## 🛠️ Requirements
+##  Requirements
 
 - Python 3.9+
 - pip (Python package manager)
 - (Optional) Docker
 
-## 🚀 Installation
+##  Installation
 
 Clone the repository:
 
@@ -33,7 +33,7 @@ APP_ENV=development
 LOG_LEVEL=INFO
 ```
 
-## 🐳 Docker
+##  Docker
 
 Build and run:
 
