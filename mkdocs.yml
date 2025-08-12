@@ -1,7 +1,7 @@
-site_name: python-app
-site_description: Main documentation for python-app
+site_name: 'python-app'
+site_description: 'Main documentation for python-app'
 repo_url: https://github.com/anthony-gilbert/python-app
-site_author: Anthony Gilbert
+site_author: 'Anthony Gilbert'
 edit_uri: edit/main/docs  # use the correct branch name
 
 plugins:
@@ -10,4 +10,4 @@ plugins:
 
 nav:
   - Overview:
-      - Getting started: index.md
+      - Getting started: 'docs/index.md'
