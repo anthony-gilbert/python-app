@@ -2,7 +2,7 @@ replicaCount: 1
 image:
   repository: anthonygilbertt/python-app
   pullPolicy: IfNotPresent
-  tag: "ab6c1d"
+  tag: "85c726"
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
